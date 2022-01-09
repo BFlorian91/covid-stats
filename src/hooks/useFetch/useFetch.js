@@ -19,7 +19,5 @@ export default function useFetch(url) {
     })();
   }, [url]);
 
-  console.warn('WATCH OUT SPAMMING API CALLING')
-
   return { data, error, isLoading };
 }

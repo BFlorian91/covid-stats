@@ -10,7 +10,9 @@
 }
 
 .app__header {
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .app__title {
@@ -26,6 +28,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.app__logo {
+  width: 3em;
 }
 
 .loading,

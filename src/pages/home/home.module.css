@@ -15,10 +15,12 @@
   }
 
 .home {
-    width: 100%;
     display: flex;
     justify-content: center;
-    /* background: teal; */
+
+    width: 100%;
+
+    margin-top: 1em;
 }
 
 .home__contents {

@@ -1,27 +1,15 @@
-import { useState } from "react";
 import { ClipLoader } from "react-spinners";
 
 import { useFetch } from "./hooks";
 import Home from "./pages/home/Home";
-import { USER_PER_PAGE } from "./utils/constants";
-import Pagination from "./components/Pagination/Pagination";
 
+import virusSvg from "./images/virus-svg.svg";
 import styles from "./styles/app.module.css";
 
 function App() {
-  const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
   const { data, error, isLoading } = useFetch(
     "https://covid19-api.com/country/all?format=json"
   );
-
-  const paginate = pageNumber => {
-    setPage(pageNumber);
-  }
-
-  if (data && totalPages === 0) {
-    setTotalPages(Math.ceil(data.length / USER_PER_PAGE));
-  }
 
   if (isLoading) {
     return (
@@ -35,11 +23,11 @@ function App() {
   return (
     <div className={styles.app}>
       <header className={styles.app__header}>
-        <h1 className={styles.app__title}>🌿 All Countries 🌴</h1>
+        <img className={styles.app__logo} src={virusSvg} alt="virus" />
+        <h1 className={styles.app__title}>COVID STATS</h1>
       </header>
       <main className={styles.app__main}>
-        <Home data={data} page={page} />
-        <Pagination totalPages={totalPages} handleClick={paginate} />
+        <Home data={data} />
       </main>
     </div>
   );

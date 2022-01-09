@@ -3,8 +3,8 @@ import { ClipLoader } from "react-spinners";
 
 import { useFetch } from "./hooks";
 import Home from "./pages/home/Home";
-import Pagination from "./components/Pagination/Pagination";
 import { USER_PER_PAGE } from "./utils/constants";
+import Pagination from "./components/Pagination/Pagination";
 
 import styles from "./styles/app.module.css";
 
@@ -15,7 +15,7 @@ function App() {
     "https://covid19-api.com/country/all?format=json"
   );
 
-  const handleClick = pageNumber => {
+  const paginate = pageNumber => {
     setPage(pageNumber);
   }
 
@@ -39,7 +39,7 @@ function App() {
       </header>
       <main className={styles.app__main}>
         <Home data={data} page={page} />
-        <Pagination totalPages={totalPages} handleClick={handleClick} />
+        <Pagination totalPages={totalPages} handleClick={paginate} />
       </main>
     </div>
   );

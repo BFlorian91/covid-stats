@@ -8,14 +8,13 @@ export default function Pagination({ totalPages, handleClick }) {
       <div className={styles.pagination}>
         <div className={styles.pagination__content}>
           {pages.map((pageNumber, index) => (
-            <a
+            <button
               className={styles.pagination__link}
               key={index}
-              href="!#"
               onClick={() => handleClick(pageNumber)}
             >
               {pageNumber}
-            </a>
+            </button>
           ))}
         </div>
       </div>
